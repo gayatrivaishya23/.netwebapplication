@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Booking Confirmation";
+}
+
+<div class="container py-5">
+    <div class="card shadow-lg mx-auto p-4" style="max-width:500px;">
+        <h3 class="text-warning">Booking Confirmed!</h3>
+        <p><strong>Name:</strong> @ViewBag.UserName</p>
+        <p><strong>Concert:</strong> @ViewBag.EventTitle</p>
+        <p><strong>Date:</strong> @ViewBag.Date</p>
+        <p><strong>Seats:</strong> @ViewBag.SelectedSeats</p>
+        <p><strong>Payment:</strong> @ViewBag.PaymentMethod</p>
+        <p><strong>Total Amount:</strong> ₹@ViewBag.TotalAmount</p>
+        <a href="/Concerts/Index" class="btn btn-warning w-100">Back to Concerts</a>
+    </div>
+</div>

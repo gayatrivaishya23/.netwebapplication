@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container d-flex justify-content-center align-items-center vh-100"
+     style="background:linear-gradient(135deg, #0b0c10, #1e3c72);">
+
+    <div class="card shadow-lg p-4"
+         style="width:400px; border-radius:15px; background-color:#141b29; color:white;">
+
+        <h3 class="text-center mb-4 text-warning">📝 Create Account</h3>
+
+        <form method="post" action="/Account/Register">
+
+            <div class="mb-3">
+                <label>Full Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter your name" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Enter your email" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Enter your password" required />
+            </div>
+
+            <button type="submit" class="btn w-100"
+                    style="background:#ffdd57; color:black; font-weight:600;">
+                Register
+            </button>
+
+            <div class="text-center mt-3">
+                <a href="/Account/Login" class="text-light">Already have an account?</a>
+            </div>
+        </form>
+    </div>
+</div>

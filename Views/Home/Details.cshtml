@@ -1,0 +1,6 @@
+﻿@model MovieEventBooking.Models.EventModel
+<h2>@Model.Title</h2>
+<img src="@Model.PosterUrl" width="250" />
+<p>@Model.Description</p>
+<p>Seats: @Model.BookedSeats / @Model.TotalSeats</p>
+<a href="/Home/Index">Back to Events</a>

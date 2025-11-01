@@ -1,0 +1,43 @@
+﻿@model List<MovieEventBooking.Models.EventModel>
+@{
+    ViewData["Title"] = "All Events";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<div class="container py-5" style="min-height:100vh; background: linear-gradient(135deg, #0b0c10, #1e3c72); color:white;">
+   
+    <h1 class="fw-bold" style="color:#ffcc00;"> Event Showing</h1>
+    <div class="row g-4">
+        @foreach (var evt in Model)
+        {
+            var availableSeats = evt.TotalSeats - evt.BookedSeats;
+            <div class="col-md-4">
+                <div class="card shadow-lg h-100" style="border-radius:20px; background-color:#141b29; color:white;">
+                    <img src="@evt.PosterUrl" class="card-img-top" style="height:200px; object-fit:cover; border-radius:20px 20px 0 0;">
+                    <div class="card-body">
+                        <h4 class="text-warning">@evt.Title</h4>
+                        <p>@evt.Description</p>
+                        <p class="mb-1"><i class="bi bi-film"></i> Genre: @evt.Genre</p>
+                        <p class="mb-1"><i class="bi bi-clock"></i> Duration: @evt.Duration</p>
+                        <p class="mb-1"><i class="bi bi-currency-rupee"></i> Price: ₹@evt.Price</p>
+                        <p class="mb-1">
+                            <i class="bi bi-people-fill"></i> Available Seats:
+                            <span class="@(availableSeats > 0 ? "text-success" : "text-danger")">@availableSeats</span>
+                        </p>
+                        <div class="d-grid gap-2 mt-3">
+                            @if (availableSeats > 0)
+                            {
+                                <a asp-controller="Events" asp-action="Details" asp-route-id="@evt.EventId" class="btn btn-warning fw-bold">Book Now</a>
+                            }
+                            else
+                            {
+                                <button class="btn btn-secondary fw-bold" disabled>Sold Out</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

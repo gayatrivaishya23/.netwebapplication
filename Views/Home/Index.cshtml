@@ -1,0 +1,150 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #0b0c10, #1e3c72);
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .welcome-section {
+        text-align: center;
+        padding: 70px 20px 40px;
+    }
+
+        .welcome-section h1 {
+            color: #FFD700;
+            font-size: 2.8rem;
+            font-weight: 700;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .welcome-section p {
+            color: #d1d1d1;
+            font-size: 1.2rem;
+            animation: fadeInUp 1.5s ease;
+        }
+
+    .card-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        padding-bottom: 60px;
+    }
+
+    .info-card {
+        background: #0b1220;
+        border-radius: 15px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        padding: 30px 25px;
+        width: 320px;
+        text-align: center;
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+        }
+
+        .info-card h2 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.7rem;
+        }
+
+        .info-card p {
+            color: #bbb;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .info-card a {
+            display: inline-block;
+            background: #FFD700;
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+            .info-card a:hover {
+                background: #fff;
+            }
+
+    footer {
+        background: rgba(0, 0, 0, 0.9);
+        text-align: center;
+        color: #ccc;
+        padding: 25px;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+    }
+
+    @@keyframes fadeInDown {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+</style>
+
+<div class="welcome-section">
+    <h1>Welcome to Movie & Event Booking Portal</h1>
+    <p>Enjoy the latest blockbusters, live concerts, and exclusive events — all in one place!</p>
+</div>
+
+<div class="card-container">
+    <div class="info-card">
+        <h2>Movies</h2>
+        <p>Watch the latest and most popular movies right here. Grab your seats now!</p>
+        <a href="/Movies/Index">Explore Movies</a>
+    </div>
+
+    <div class="info-card">
+        <h2>Concerts</h2>
+        <p>Join live performances by your favorite artists and musicians. Feel the vibe!</p>
+        <a href="/Concerts/Index">Explore Concerts</a>
+    </div>
+
+    <div class="info-card">
+        <h2>Events</h2>
+        <p>Book tickets for theatre plays, sports, and special shows happening near you.</p>
+        <a href="/Events/Index">Explore Events</a>
+    </div>
+</div>
+

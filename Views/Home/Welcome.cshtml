@@ -1,0 +1,147 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #0b0c10, #1e3c72, #2a5298);
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .welcome-container {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 50px 70px;
+        border-radius: 25px;
+        box-shadow: 0 0 25px rgba(255, 221, 87, 0.3);
+        backdrop-filter: blur(10px);
+        animation: fadeIn 1.2s ease-in-out;
+    }
+
+    h1 {
+        color: #FFD700;
+        font-size: 2.8rem;
+        font-weight: 700;
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        margin-bottom: 20px;
+        animation: slideDown 1.3s ease;
+    }
+
+    p {
+        color: #d1d1d1;
+        font-size: 1.2rem;
+        margin-bottom: 35px;
+        animation: fadeInUp 1.5s ease;
+    }
+
+    .btn-custom {
+        background-color: #FFD700;
+        color: #0b0c10;
+        font-weight: 600;
+        border: none;
+        padding: 14px 40px;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    }
+
+        .btn-custom:hover {
+            transform: scale(1.07);
+            background-color: #ffcc00;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+        }
+
+    .movie-icon {
+        font-size: 4rem;
+        color: #FFD700;
+        margin-bottom: 25px;
+        animation: spin 6s linear infinite;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 20px;
+        font-size: 0.9rem;
+        color: #ccc;
+        opacity: 0.8;
+    }
+
+    @@keyframes fadeIn {
+        from
+
+    {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    }
+
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes slideDown {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes spin {
+        from
+
+    {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+    }
+</style>
+
+<div class="welcome-container">
+    <div class="movie-icon"></div>
+    <h1>Welcome to CineSphere</h1>
+    <p>Your ultimate destination for booking Movies, Concerts & Events 🎫</p>
+
+    <form asp-action="GoToLogin" method="post">
+        <button type="submit" class="btn-custom">Get Started</button>
+    </form>
+</div>
+
+<footer>© 2025 CineSphere | All Rights Reserved</footer>

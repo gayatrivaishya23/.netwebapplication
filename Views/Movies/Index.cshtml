@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MovieEventBooking.Models.Movie>
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<div class="container-fluid py-5" style="background: linear-gradient(135deg, #0b0c10, #1e3c72); min-height:100vh; color:white;">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold" style="color:#ffcc00;"> Movie Showing</h1>
+        <p class="lead text-light">Enjoy the latest blockbusters — book your tickets today!</p>
+    </div>
+
+    <div class="row justify-content-center g-4">
+        @foreach (var movie in Model)
+        {
+            <div class="col-md-3">
+                <div class="card shadow-lg border-0" style="border-radius:20px; background-color:#141b29; color:white;">
+                    <img src="@movie.Image" alt="@movie.Title" class="card-img-top" style="border-top-left-radius:20px; border-top-right-radius:20px; height:250px; object-fit:cover;">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold text-warning">@movie.Title</h5>
+                        <p class="mb-1"><i class="bi bi-film"></i> Genre: <span class="text-info">@movie.Genre</span></p>
+                        <p class="mb-1"><i class="bi bi-clock"></i> Duration: <span class="text-info">@movie.Duration</span></p>
+                        <p class="mb-2"><i class="bi bi-currency-rupee"></i>@movie.Price</p>
+
+                        <a asp-action="Details" asp-route-id="@movie.Id" class="btn btn-warning fw-bold w-100" style="border-radius:10px;">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Booking Confirmation";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<div class="container py-5">
+    <div class="card shadow-lg mx-auto p-4 text-center" style="max-width:600px; border-radius:20px; background-color:#141b29; color:white;">
+        <h2 class="text-warning"> Booking Confirmed!</h2>
+        <p>@ViewBag.UserName, your tickets are booked successfully.</p>
+        <hr class="text-secondary">
+        <p><strong>Event:</strong> @ViewBag.EventTitle</p>
+        <p><strong>Date:</strong> @ViewBag.Date</p>
+        <p><strong>Seats:</strong> @ViewBag.SelectedSeats</p>
+        <p><strong>Payment:</strong> @ViewBag.PaymentMethod</p>
+        <p><strong>Total:</strong> ₹@ViewBag.TotalAmount</p>
+        <button id="downloadTicket" class="btn btn-outline-warning mt-3">Download Ticket</button>
+        <a asp-controller="Events" asp-action="Index" class="btn btn-warning mt-3">Back to Events</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById("downloadTicket").addEventListener("click", ()=>{
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.setFontSize(18); doc.text(" Event Ticket", 70, 20);
+        doc.setFontSize(14);
+        doc.text(`Name: ${"@ViewBag.UserName"}`, 20, 40);
+        doc.text(`Event: ${"@ViewBag.EventTitle"}`, 20, 50);
+        doc.text(`Date: ${"@ViewBag.Date"}`, 20, 60);
+        doc.text(`Seats: ${"@ViewBag.SelectedSeats"}`, 20, 70);
+        doc.text(`Payment: ${"@ViewBag.PaymentMethod"}`, 20, 80);
+        doc.text(`Total: ₹${"@ViewBag.TotalAmount"}`, 20, 90);
+        doc.save(`${"@ViewBag.EventTitle"}_Ticket.pdf`);
+    });
+</script>

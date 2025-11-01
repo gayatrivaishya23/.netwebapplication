@@ -1,0 +1,92 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="home-container">
+    <section class="hero">
+        <h1>Welcome to EventEase</h1>
+        <p>Your one-stop solution for booking movies, concerts, and events</p>
+    </section>
+
+    <section class="categories">
+        <h2>Categories</h2>
+        <div class="category-list">
+            <div class="category-card">
+                <a href="/Movies">
+                    <img src="/images/movies.jpg" alt="Movies">
+                    <h3>Movies</h3>
+                </a>
+            </div>
+            <div class="category-card">
+                <a href="/Concerts">
+                    <img src="/images/concerts.jpg" alt="Concerts">
+                    <h3>Concerts</h3>
+                </a>
+            </div>
+            <div class="category-card">
+                <a href="/Events">
+                    <img src="/images/events.jpg" alt="Events">
+                    <h3>Events</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .home-container {
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(to bottom, #141E30, #243B55);
+        color: white;
+        padding: 40px;
+        overflow-y: auto;
+        height: 100vh;
+    }
+
+    .hero {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #00BFFF;
+        }
+
+    .categories {
+        text-align: center;
+    }
+
+    .category-list {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .category-card {
+        width: 280px;
+        background: #1e293b;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .category-card h3 {
+            padding: 15px;
+            color: #fff;
+            font-weight: bold;
+        }
+</style>

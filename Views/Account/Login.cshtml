@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container d-flex justify-content-center align-items-center vh-100" style="background:linear-gradient(135deg, #0b0c10, #1e3c72);">
+    <div class="card shadow-lg p-4" style="width:400px; border-radius:15px; background-color:#141b29; color:white;">
+        <h3 class="text-center mb-4 text-warning">🔐 User Login</h3>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger text-center">@ViewBag.Error</div>
+        }
+
+        <form method="post" action="/Account/Login">
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" required />
+            </div>
+
+            <button type="submit" class="btn w-100" style="background:#ffdd57; color:black; font-weight:600;">Login</button>
+
+            <div class="text-center mt-3">
+                <a href="/Account/Register" class="text-light">Create new account?</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Book Ticket";
+    var movie = ViewBag.Movie;
+    var seats = ViewBag.Seats as List<string>;
+}
+
+<div class="container mt-5 p-4 card shadow">
+    <h2 class="text-center">🎬 Book Ticket - @movie.Title</h2>
+    <img src="@movie.Image" alt="@movie.Title" class="img-fluid rounded mb-3" style="max-height:250px; object-fit:cover;" />
+
+    <form asp-action="BookTicket" method="post">
+        <input type="hidden" name="MovieTitle" value="@movie.Title" />
+
+        <div class="mb-3">
+            <label class="form-label">Select Theater</label>
+            <select class="form-control" name="TheaterName" required>
+                @foreach (var t in movie.Theaters)
+                {
+                    <option value="@t.Name">@t.Name - @t.Address</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Select Seat</label>
+            <select class="form-control" name="SelectedSeat" required>
+                @foreach (var s in seats)
+                {
+                    <option value="@s">@s</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Enter Email</label>
+            <input type="email" class="form-control" name="UserEmail" required />
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Confirm Booking 🎟️</button>
+    </form>
+</div>

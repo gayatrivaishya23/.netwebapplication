@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Booking Confirmation";
+}
+
+<div class="container-fluid d-flex justify-content-center align-items-center"
+     style="min-height:100vh; background:linear-gradient(135deg, #0b0c10, #1e3c72); color:white;">
+    <div class="card shadow-lg border-0 text-center p-5"
+         style="width:600px; border-radius:25px; background-color:#141b29; color:white;">
+
+        <div class="mb-4">
+            <i class="bi bi-check-circle-fill text-warning" style="font-size:80px;"></i>
+        </div>
+
+        <h2 class="fw-bold text-warning mb-3">Booking Confirmed!</h2>
+        <p class="fs-5 mb-4" style="color:#cfd8dc;">Your movie tickets are successfully booked.</p>
+
+        <div class="p-4 mb-4" style="background-color:#0b0c10; border-radius:15px; text-align:left;">
+            <p><strong class="text-warning"> Movie:</strong> <span id="movieTitle"></span></p>
+            <p><strong class="text-warning"> Theater:</strong> <span id="theater"></span></p>
+            <p><strong class="text-warning"> Seats:</strong> <span id="seats"></span></p>
+            <p><strong class="text-warning"> Payment:</strong> <span id="payment"></span></p>
+        </div>
+
+        <a href="/Movies/Index" class="btn btn-warning fw-bold px-4 py-2" style="border-radius:10px;">
+             Back to Movies
+        </a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("movieTitle").textContent = localStorage.getItem("movieTitle");
+        document.getElementById("theater").textContent = localStorage.getItem("theater");
+        document.getElementById("seats").textContent = localStorage.getItem("seats");
+        document.getElementById("payment").textContent = localStorage.getItem("payment");
+        localStorage.clear();
+    });
+</script>

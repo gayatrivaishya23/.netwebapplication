@@ -4,7 +4,8 @@ WORKDIR /src
 
 # Copy csproj and restore dependencies
 COPY *.sln ./
-COPY MovieEventBooking/*.csproj MovieEventBooking/
+COPY ./MovieEventBooking/*.csproj ./MovieEventBooking/
+
 RUN dotnet restore "MovieEventBooking/MovieEventBooking.csproj"
 
 # Copy everything else and build

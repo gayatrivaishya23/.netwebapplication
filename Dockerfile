@@ -11,6 +11,10 @@ RUN dotnet restore "MovieEventBooking/MovieEventBooking.csproj"
 COPY . .
 WORKDIR /src/MovieEventBooking
 RUN dotnet publish -c Release -o /app/publish
+# Copy csproj and restore dependencies
+COPY *.csproj ./
+RUN dotnet restore
+
 
 # Final stage / runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime

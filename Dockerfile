@@ -1,22 +1,21 @@
-# ==============================
-#   BUILD STAGE
-# ==============================
+# Use the official .NET SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy csproj and restore dependencies
-COPY ["MovieEventBooking.csproj", "./"]
-RUN dotnet restore "MovieEventBooking.csproj"
+COPY *.sln ./
+COPY MovieEventBooking/*.csproj MovieEventBooking/
+RUN dotnet restore "MovieEventBooking/MovieEventBooking.csproj"
 
-# Copy all files and build
+# Copy everything else and build
 COPY . .
-RUN dotnet publish "MovieEventBooking.csproj" -c Release -o /app/publish
+WORKDIR /src/MovieEventBooking
+RUN dotnet publish -c Release -o /app/publish
 
-# ==============================
-#   RUNTIME STAGE
-# ==============================
+# Final stage / runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
+ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080
 ENTRYPOINT ["dotnet", "MovieEventBooking.dll"]

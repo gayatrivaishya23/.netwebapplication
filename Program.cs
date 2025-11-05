@@ -1,8 +1,9 @@
-﻿using MovieEventBooking.Services;
+using MovieEventBooking.Services;
 using MovieEventBooking.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
@@ -11,16 +12,16 @@ builder.Services.AddSession();
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDbSettings"));
 builder.Services.AddSingleton<MongoService>();
-builder.Services.AddSingleton<MongoService>();
-builder.Services.AddSession();
 
 var app = builder.Build();
 
+// Middlewares
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
 
+// Default Route
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Welcome}/{id?}");
